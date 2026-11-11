@@ -104,6 +104,8 @@ Custom formatters and parsers can be registered with `Pasoonate.setFormatter()` 
 - `format(pattern, locale)` uses the `locale` argument.
 - Parsing month names with `MMMM` and `MMM` works.
 - `age()` no longer fails when today is in the first month of the year.
+- `isFuture()` / `isPast()` mean after / before the current moment (JS ignored the direction).
+- English Gregorian and Jalali day names now line up with `dayOfWeek()` (0 = Saturday).
 - Using a manager before choosing a calendar throws a `StateError`.
 
 ## Tests

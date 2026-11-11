@@ -63,6 +63,16 @@ void main() {
           '30 Farvardin 98');
     });
 
+    test('english day names match dayOfWeek', () {
+      Pasoonate.localization.setLang('en', en);
+      Pasoonate.setLocale('en');
+      final m = Pasoonate.make(ts, tehran); // friday
+      expect(m.gregorian().format('dddd ddd'), 'Friday Fri');
+      expect(m.jalali().format('dddd ddd'), 'Friday Fri');
+      expect(m.subDay(1).gregorian().format('dddd'), 'Thursday');
+      expect(m.addDay(2).gregorian().format('dddd'), 'Saturday');
+    });
+
     test('locale argument', () {
       Pasoonate.localization.setLang('en', en);
       expect(Pasoonate.make(ts, tehran).jalali().format('MMMM', 'en'),
@@ -151,6 +161,14 @@ void main() {
       expect(y.diffForHumans(x), '1 سال 2 ماه 1 روز قبل');
       expect(x.diffForHumans(y), '1 سال 2 ماه 1 روز بعد');
       expect(x.diffForHumans(x.clone()), 'اکنون');
+    });
+
+    test('isFuture / isPast', () {
+      final now = Pasoonate.make().gregorian();
+      expect(now.clone().gregorian().addMinute(5).isFuture(), isTrue);
+      expect(now.clone().gregorian().addDay(3).isPast(), isFalse);
+      expect(now.clone().gregorian().subDay(3).isFuture(), isFalse);
+      expect(now.clone().gregorian().subMinute(5).isPast(), isTrue);
     });
 
     test('isToday / isTomorrow / isYesterday', () {

@@ -57,15 +57,11 @@ mixin Comparison on CalendarManagerCore {
     return _self.gregorian().diffInDays(tomorrow) == 0;
   }
 
-  bool isFuture() {
-    final today = Pasoonate.make().gregorian();
-    return _self.gregorian().diffInDays(today) > 1;
-  }
+  /// True when the date is after the current moment.
+  bool isFuture() => _timestamp > Pasoonate.make().getTimestamp();
 
-  bool isPast() {
-    final today = Pasoonate.make().gregorian();
-    return today.gregorian().diffInDays(_self) > 1;
-  }
+  /// True when the date is before the current moment.
+  bool isPast() => _timestamp < Pasoonate.make().getTimestamp();
 
   bool isLeapYear() => _currentCalendar.isLeap(_self.getYear());
 

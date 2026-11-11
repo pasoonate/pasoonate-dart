@@ -13,6 +13,14 @@ const src = resolve(process.argv[2]);
 const P = (await import(pathToFileURL(`${src}/Pasoonate.js`))).default;
 const en = (await import(pathToFileURL(`${src}/lang/en.js`))).default;
 globalThis.Pasoonate = P; // the JS mixins use a global
+// The JS `en` gregorian/jalali day names start at Sunday while dayOfWeek()
+// counts 0 as Saturday; the Dart port fixes that, so mirror the fix here.
+for (const cal of ['gregorian', 'jalali']) {
+  for (const key of ['day_name', 'short_day_name']) {
+    const names = en[cal][key];
+    if (Array.isArray(names) && names[0].startsWith('Sun')) names.unshift(names.pop());
+  }
+}
 P.localization.setLang('en', en);
 
 // Deterministic pseudo random numbers.

@@ -2,22 +2,22 @@
 const Map<String, dynamic> en = {
   'gregorian': {
     'day_name': [
+      'Saturday',
       'Sunday',
       'Monday',
       'Tuesday',
       'Wednesday',
       'Thursday',
       'Friday',
-      'Saturday',
     ],
     'short_day_name': [
+      'Sat',
       'Sun',
       'Mon',
       'Tue',
       'Wed',
       'Thu',
       'Fri',
-      'Sat',
     ],
     'month_name': {
       '1': 'January',
@@ -50,22 +50,22 @@ const Map<String, dynamic> en = {
   },
   'jalali': {
     'day_name': [
+      'Saturday',
       'Sunday',
       'Monday',
       'Tuesday',
       'Wednesday',
       'Thursday',
       'Friday',
-      'Saturday',
     ],
     'short_day_name': [
+      'Sat',
       'Sun',
       'Mon',
       'Tue',
       'Wed',
       'Thu',
       'Fri',
-      'Sat',
     ],
     'month_name': {
       '1': 'Farvardin',
