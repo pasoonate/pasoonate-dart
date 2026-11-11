@@ -1,0 +1,7 @@
+include: package:lints/recommended.yaml
+
+linter:
+  rules:
+    # Names mirror the JavaScript package (e.g. Constants.Friday, setUTCYear).
+    constant_identifier_names: false
+    non_constant_identifier_names: false
