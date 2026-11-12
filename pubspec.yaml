@@ -1,0 +1,11 @@
+name: pasoonate
+description: DateTime helpers and conversion between Gregorian, Jalali, Islamic and Shia calendars.
+version: 0.5.0
+repository: https://github.com/pasoonate/pasoonate-dart
+
+environment:
+  sdk: ^3.0.0
+
+dev_dependencies:
+  lints: ^5.0.0
+  test: ^1.25.0
